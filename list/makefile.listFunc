@@ -1,0 +1,25 @@
+# makefile sample
+
+TARGET= ListFunctionsTest.out
+CC= gcc
+CFLAGS= -ansi -g -pedantic
+OBJS= listFunctions.o listFunctionsTest.o ListItr.o GenericDoubleLinkedList.o
+
+$(TARGET): $(OBJS)
+	$(CC) -o $(TARGET) $(OBJS)
+
+listFunctions.o: listFunctions.c listFanctions.h 
+	$(CC) $(CFLAGS) -c listFunctions.c
+
+listFunctionsTest.o: listFunctionsTest.c listFanctions.h 
+	$(CC) $(CFLAGS) -c listFunctionsTest.c
+		
+ListItr.o: ListItr.c ListItr.h 
+	$(CC) $(CFLAGS) -c ListItr.c
+	
+GenericDoubleLinkedList.o: GenericDoubleLinkedList.c GenericDoubleLinkedList.h
+	$(CC) $(CFLAGS) -c GenericDoubleLinkedList.c
+	
+clean:
+	rm -f $(TARGET) $(OBJS)
+

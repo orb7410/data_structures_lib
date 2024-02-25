@@ -1,0 +1,19 @@
+# makefile sample
+
+TARGET= GenericDoubleLinkedList.out
+CC= gcc
+CFLAGS= -ansi -g -pedantic
+OBJS= GenericDoubleLinkedList.o GenericDoubleLinkedListTest.o
+
+$(TARGET): $(OBJS)
+	$(CC) -o $(TARGET) $(OBJS)
+	
+GenericVector.o: GenericDoubleLinkedList.c GenericDoubleLinkedList.h
+	$(CC) $(CFLAGS) -c GenericDoubleLinkedList.c
+	
+GenericVectorTest.o: GenericDoubleLinkedListTest.c GenericDoubleLinkedList.h
+	$(CC) $(CFLAGS) -c GenericDoubleLinkedListTest.c
+	
+clean:
+	rm -f $(TARGET) $(OBJS)
+
